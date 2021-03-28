@@ -1,0 +1,59 @@
+{
+	"info": {
+		"_postman_id": "6a276d98-fdec-4756-9565-fdf05da9aebc",
+		"name": "Aspiration-Exercise",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "https://jsonplaceholder.typicode.com/posts",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"//Parsing the json body\r",
+							"responseJson = JSON.parse(responseBody);\r",
+							"// Storing the JSON length in var\r",
+							"var list    = responseJson.length;\r",
+							"\r",
+							"// Looping throuhg list of JSON Objects\r",
+							"for ( var i = 0 ; i < list ; i ++)\r",
+							"{\r",
+							"        var userID     = responseJson[i].userId;\r",
+							"        var id         = responseJson[i].id;\r",
+							"        var title      = responseJson[i].title;\r",
+							"        //\r",
+							"        if ( id == 100)\r",
+							"        {\r",
+							"            console.log(\"100 Results returned\");\r",
+							"            console.log(\"USER ID:\" + userID + \"id:\" + id + \"Title:\" + title)\r",
+							"        }\r",
+							"        \r",
+							"}\r",
+							"console.log(list);"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/posts",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
